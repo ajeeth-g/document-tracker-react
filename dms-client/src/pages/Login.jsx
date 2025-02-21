@@ -1,13 +1,14 @@
+import { Eye, EyeOff, KeyRound, Mail } from "lucide-react";
 import React, { useState } from "react";
-import { Mail, KeyRound, Eye, EyeOff } from "lucide-react";
+import { useNavigate } from "react-router-dom";
 import { useAuth } from "../context/AuthContext";
-import { Navigate } from "react-router-dom";
 
 const Login = ({ setUser }) => {
   const { setUserDetails } = useAuth();
-  const [email, setEmail] = useState("");
-  const [password, setPassword] = useState("");
+  const [email, setEmail] = useState("demo@istreams.com");
+  const [password, setPassword] = useState("pass@123");
   const [showPassword, setShowPassword] = useState(false);
+  const navigate = useNavigate();
 
   const handleLogin = (e) => {
     e.preventDefault();
@@ -15,8 +16,9 @@ const Login = ({ setUser }) => {
     if (email === "demo@istreams.com" && password === "pass@123") {
       setUserDetails(email, password);
       setUser(true);
+
       alert(`Welcome back, ${email}!`);
-      Navigate("/dashboard");
+      navigate("/dashboard");
     } else {
       alert("Invalid credentials!");
     }

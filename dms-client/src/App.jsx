@@ -5,14 +5,16 @@ import {
   Routes,
   Navigate,
 } from "react-router-dom";
-import Navbar from "./components/Navbar";
-import Footer from "./components/Footer";
-import DocumentUpload from "./pages/DocumentUpload";
-import Sidebar from "./components/Sidebar";
-import Breadcrumb from "./components/Breadcrumb";
+import UploadDocumentPage from "./pages/UploadDocumentPage";
 import NotFound from "./pages/NotFound";
 import Login from "./pages/Login";
 import { AuthProvider } from "./context/AuthContext";
+import Sidebar from "./components/common/Sidebar";
+import Breadcrumb from "./components/common/Breadcrumb";
+import Footer from "./components/common/Footer";
+import Navbar from "./components/common/Navbar";
+import TaskForm from "./components/TaskForm";
+import Dashboard from "./pages/Dashboard";
 
 const App = () => {
   const [isSidebarOpen, setIsSidebarOpen] = useState(true);
@@ -45,8 +47,7 @@ const App = () => {
                 <div className="divider"></div>
                 <Routes>
                   <Route path="/" element={<Navigate to="/dashboard" />} />
-                  <Route path="/dashboard" element={<DocumentUpload />} />
-                  <Route path="*" element={<NotFound />} />
+                  <Route path="/dashboard" element={<Dashboard />} />
                 </Routes>
               </div>
               <Footer />

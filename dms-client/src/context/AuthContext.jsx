@@ -15,7 +15,6 @@ export const AuthProvider = ({ children }) => {
 
     // Extract domain from email
     const extractedDomain = email.split("@")[1];
-    console.log(extractedDomain);
     
     setDomain(extractedDomain);
   };

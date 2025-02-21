@@ -22,6 +22,8 @@ const ensureDirectoryExistence = (dirPath) => {
 // Configure multer storage
 const storage = multer.diskStorage({
   destination: (req, file, cb) => {
+    console.log("testtt: " + req.body.domainName);
+    
     // Ensure domainName and refNo exist in the request body
     const domainName = req.body.domainName || "istreams.com"; // Fallback if domainName is missing
     const refNo = req.body.refNo || "1001"; // Fallback if refNo is missing
